@@ -21,5 +21,13 @@ services:
     depends_on:
       - db
 
+  test:
+    build: .
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    command: ["pytest"]
+
 volumes:
   postgres_data:
